@@ -1,0 +1,50 @@
+<div class="container-fluid grid-list-select">
+  
+    <div class='overlay-grid-list'>
+  
+      <md-toolbar color="dark" class="head-tool">
+  
+        <img [ngClass]="{'img-head':true}" src="../assets/logo.png" />
+  
+        <!-- This fills the remaining space of the current row -->
+        <span class="example-fill-remaining-space"> New Page</span>
+  
+        <!--<span aria-hidden="true">&times;</span>-->
+  
+      </md-toolbar>
+  
+      <div class='grid-list-container'>
+        <div>
+          <p class="list-para">Choose the layout of the page</p>
+        </div>
+        <md-grid-list cols="6" rowHeight="80px" gutterSize="10px">
+          <md-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [ngStyle]="{'background-image': 'url(' + tile.imgsrc + ')','background-repeat':'no-repeat','background-position':'50%+50%','background-color':'#32383d'}"
+            [ngClass]="{'selected-grid': tile.status,'hilight-grid': tile.hoverstatus}" (click)="selectGrid($event,tile,tiles)"
+            (mouseover)="onMouseOver(tile)" (mouseout)="onMouseOut(tile)">
+          </md-grid-tile>
+        </md-grid-list>
+        {{selected}}
+  
+      </div>
+  
+      <md-toolbar color="dark" class="foot-tool">
+        
+  
+     <div class="row resetpadmar">
+       <div class="col-md-7"></div>
+       <div class="col-md-5">
+        <div class="row">
+          <div class="col-md-5"></div>
+          <div class='btn-cncl col-md-3'><button md-button md-dialog-close="CLOSE" class="background-primary-color-cancel white-text roundedCornerBtn">Cancel</button></div>
+  
+          <div class='btn-sbmt col-md-3'><button md-button [md-dialog-close]="selectedGrid" class="background-primary-color white-text roundedCornerBtn"
+              [disabled]="selectedGrid==undefined"> Create</button></div>
+  
+        </div>
+     </div>
+     </div>
+  
+  
+      </md-toolbar>
+    </div>
+  </div>

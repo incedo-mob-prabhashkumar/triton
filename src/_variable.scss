@@ -1,0 +1,55 @@
+
+
+$background-color:#1a2024!default;
+$button-color:#1a2024 !default ;
+$font-color:#858789;
+$button-color-submit:#1473e6!default ;
+
+$grid-color:#2f363b;
+$button-caption-color:black !default ;
+
+//editor screen variable
+$left-panel-background:#0f1213!default;
+$right-panel-background:#1a2024!default;
+
+
+$button-caption-color:black !default ;
+$background-color-input-area:#0f1213 !default;
+
+$text-color:#66abff !default;
+// all imports areb done after variable declaration
+
+
+
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @author Hugo Giraudel
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($primary, white, 75%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+
+@import "global";
+

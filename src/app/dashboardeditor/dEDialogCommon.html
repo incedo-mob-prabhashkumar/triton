@@ -1,0 +1,35 @@
+<h2 md-dialog-title>
+  Message</h2>
+<md-dialog-content>
+  <p>
+    {{data.msg}}
+  </p>
+
+  <div class="row" *ngIf="data.id=='delpageDl'">
+    <div class="col-md-4"> </div>
+    <div class="col-md-4">
+      <button md-button md-dialog-close="CLOSE" class="background-primary-color-cancel white-text roundedCornerBtn">Cancel</button>
+    </div>
+    <div class="col-md-4"><button md-button md-dialog-close="OK" class="background-primary-color white-text roundedCornerBtn"> Ok</button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="data.id=='publishDL'">
+    <div class="col-md-4"> </div>
+    <div class="col-md-4">
+      <button md-button md-dialog-close="CLOSE" class="background-primary-color-cancel white-text roundedCornerBtn">Cancel</button>
+    </div>
+    <div class="col-md-4"><button md-button md-dialog-close="OK" class="background-primary-color white-text roundedCornerBtn"> Ok</button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="data.id=='prevDL'">
+    <div class="col-md-4"> </div>
+    <div class="col-md-4">
+      <button md-button md-dialog-close="CLOSE" class="background-primary-color-cancel white-text roundedCornerBtn">No</button>
+    </div>
+    <div class="col-md-4"><button md-button class="background-primary-color white-text roundedCornerBtn" (click)="closePreview()">Yes</button>
+    </div>
+  </div>
+
+</md-dialog-content>

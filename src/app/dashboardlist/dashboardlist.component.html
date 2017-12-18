@@ -1,0 +1,92 @@
+<!--DASHBOARD LIST SCREEN  -->
+
+<div class="container">
+  <!--HEADER SECTION START  -->
+  <div class="row header-section-top-buffer">
+    <div class="col-md-12">
+    
+    </div>
+  </div>
+  <!--HEADER SECTION END  -->
+
+  <!--CONTENT SECTION START -->
+  <div class="row content-section-top-buffer">
+    <!--DESCRIPTION AREA  -->
+    <div class="col-md-6 description-area">
+        <img [src]="imagePath" />
+      <h3>Welcome to the Triton Editor</h3>
+      <p>{{description}}</p>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <!--INPUT AREA  -->
+    <div class="col-md-5 input-area-left-buffer">
+      <div class="input-area">
+        <h4 class="align">Getting Started</h4>
+        <h5 class="align">Enter the details below to start editing</h5>
+        <div class="mdinput">
+          <md-input-container class="input-width">
+            <input mdInput placeholder="Application Name" [mdAutocomplete]="appMap" [formControl]="applicationCtrl" [(ngModel)]="applicationValue"
+              (click)="listApplications()">
+          </md-input-container>
+          <md-autocomplete #appMap="mdAutocomplete" class="input-width" [displayWith]="displayFnForApplication">
+            <md-option *ngFor="let application of filteredApplications" [value]="application">
+              {{ application.APP_NAME }}
+            </md-option>
+          </md-autocomplete>
+        </div>
+        <div>
+          <div class="mdinput">
+            <md-input-container class="input-width">
+              <input mdInput placeholder="Dashboard Name" [mdAutocomplete]="dbMap" [formControl]="dashboardCtrl" [(ngModel)]="dashboardValue"
+                (click)="listDashboards()">
+            </md-input-container>
+            <md-autocomplete #dbMap="mdAutocomplete" class="input-width" [displayWith]="displayFnForDashboard">
+              <md-option *ngFor="let dashboard of filteredDashboards" [value]="dashboard">
+                {{ dashboard.LABEL }}
+              </md-option>
+            </md-autocomplete>
+          </div>
+        </div>
+        <div class="edit-button-buffer">
+          <!-- <button md-raised-button>Raised button</button> -->
+          <button md-raised-button [disabled]="editButtonDisabled" (click)="editDashboard()" class="mat-ripple">EDIT</button>
+          <!-- <button type="button" class="btn btn-primary btn-sm btn-block" (click)="editDashboard()">EDIT</button> -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!--CONTENT SECTION END  -->
+
+  <!--LATEST EDIT SECTION START  -->
+  <div class="row latestEditHeaderSection">
+    <img [src]="latestEditIconPath" alt=""><span><b> My Dashboards </b></span>
+  </div>
+  <div class="scrollable">
+    <div class="row itemScrollable" *ngFor="let item of myDashboardList">
+      <div class="col-md-1">
+        <img class="graphIcon" [src]="_graphIconPath" alt="">
+      </div>
+      <div class="col-md-5 top-buffer">
+        <div>Application Name : {{item.APP_NAME}}</div>
+        <div>Dashboard Name : {{item.DASHBOARD_NAME}}</div>
+      </div>
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-2 top-buffer-ext">
+        <!-- <button type="button" class="btn btn-primary">Preview</button> -->
+        <button md-raised-button class="mat-ripple roundedCornerBtn">Preview</button>
+      </div>
+      <div class="col-md-2 top-buffer-ext">
+        <!-- <button type="button" class="btn btn-primary">Edit</button> -->
+        <button md-raised-button class="mat-ripple roundedCornerBtn"  (click)="editMyDashboard(item)" >Edit</button>
+      </div>
+    </div>
+
+  </div>
+  <!--LATEST EDIT SECTION END  -->
+</div>

@@ -1,0 +1,78 @@
+
+@import "../../variable";
+.ch{
+    color:$button-caption-color;
+    font-size: 30px;
+}
+.grid-page-head{
+    height:44px;
+    
+}
+.grid-list-select{
+  background:$background-color;
+  padding:0px;  
+.overlay-grid-list{
+      
+
+       .grid-list-container{
+           width: 90%;
+           margin-left: 5%;
+           background:$background-color;
+         .list-para{
+             margin-top: 3%;
+             margin-bottom: 3%;
+         }
+       }
+}
+}
+.example-fill-remaining-space {
+  // This fills the remaining space, by using flexbox. 
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+  margin-left: 2%;
+}
+.head-tool 
+{
+    .mat-toolbar{
+    border-bottom: solid 1px grey;
+    background: black;
+}
+}
+
+.foot-tool{
+
+    background: black;
+}
+.selected-grid{
+    border:solid 2px blue;
+}
+.hilight-grid{
+          border:solid 2px blue;
+ }
+ .img-head{
+     width:44px;
+     height:44px;
+ }
+ .empty-div{
+     flex: 1 1 70%;
+ }
+ .btn-cncl{
+     flex: 1 1 auto;
+ }
+ .btn-sbmt{
+     flex: 1 1 9%;
+ }
+
+ .background-primary-color {
+    background-color: #3F51B5!important;
+  }
+  .background-primary-color-cancel{
+      background: transparent;
+      border:solid 1px white;
+  }
+.background-accent-color {
+    background-color: #FF4081!important;
+  }
+.white-text {
+    color: #FFF!important;
+}
